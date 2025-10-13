@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章 - 我的数学笔记</title>
+    
+    <!-- MathJax 配置 -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$']],
+          displayMath: [['$$', '$$']]
+        },
+        output: {
+          fontPath: '/fonts/mathjax-newcm-font'  // 本地字体路径（根目录）
+        },
+        options: {
+          enableEnrichment: false,
+          enableExplorer: false,
+          enableSpeech: false,
+          enableBraille: false,
+          enableComplexity: false
+        }
+      }
+    </script>
+    <!-- MathJax 4.0 完全离线部署 -->
+    <script src="/MathJax-4.0.0/tex-chtml-nofont.js"></script>
+    <!-- MathJax 4.0 CDN（备用）-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script> -->
+  </head>
+  <body>
+    <div id="articleApp"></div>
+    <script type="module" src="/src/article.js"></script>
+  </body>
+</html>
+
