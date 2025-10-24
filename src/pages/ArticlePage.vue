@@ -101,6 +101,7 @@ onMounted(async () => {
   grid-template-columns: 200px 1fr 150px;
   gap: 32px;
   max-width: 1600px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 16px;
   align-items: start;
@@ -110,13 +111,6 @@ onMounted(async () => {
   max-width: 1080px;
   padding: 24px;
   box-sizing: border-box;
-}
-
-/* 移动端：单列布局 */
-@media (max-width: 768px) {
-  .article-layout {
-    grid-template-columns: 1fr;
-  }
 }
 </style>
 

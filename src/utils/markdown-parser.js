@@ -64,9 +64,12 @@ function generateTOC(markdown) {
     
     // 只提取指定层级
     if (level >= outlineLevel[0] && level <= outlineLevel[1]) {
+      // 生成锚点 ID
       const id = text.toLowerCase()
+        // 步骤1：所有空白字符替换为连字符
         .replace(/\s+/g, '-')
-        .replace(/[^\w\u4e00-\u9fa5-\d]/g, '')  // 保留数字
+        // 步骤2：保留字母、数字、中文、连字符
+        .replace(/[^\w\u4e00-\u9fa5\-δ>=<]/g, '')
       
       toc.push({ level, text, id })
     }
@@ -80,7 +83,7 @@ const renderer = {
   heading({ text, depth }) {
     const id = text.toLowerCase()
       .replace(/\s+/g, '-')
-      .replace(/[^\w\u4e00-\u9fa5-\d]/g, '')  // 保留数字
+      .replace(/[^\w\u4e00-\u9fa5\-δ>=<]/g, '')  
     
     return `<h${depth} id="${id}">${text}</h${depth}>`
   }
