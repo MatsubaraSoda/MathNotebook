@@ -1,21 +1,20 @@
 <script setup>
 import AppHeader from './components/AppHeader.vue'
 import AppFooter from './components/AppFooter.vue'
-import ArticlePage from './pages/ArticlePage.vue'
 </script>
 
 <template>
-  <div id="article-container">
+  <div id="app-container">
     <AppHeader />
     <main class="main-content">
-      <ArticlePage />
+      <router-view />
     </main>
     <AppFooter />
   </div>
 </template>
 
 <style>
-#article-container {
+#app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;

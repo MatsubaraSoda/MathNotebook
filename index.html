@@ -3,13 +3,34 @@
   <head>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/src/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的数学笔记</title>
     
-    <!-- MathJax 已本地化，无需 CDN -->
+    <!-- MathJax 配置 -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$']],
+          displayMath: [['$$', '$$']]
+        },
+        output: {
+          fontPath: '/mathjax/fonts/mathjax-newcm-font'  // 本地字体路径（根目录）
+        },
+        options: {
+          enableEnrichment: false,
+          enableExplorer: false,
+          enableSpeech: false,
+          enableBraille: false,
+          enableComplexity: false
+        }
+      }
+    </script>
+    <!-- MathJax 4.0 完全离线部署 -->
+    <script src="/mathjax/MathJax-4.0.0/tex-chtml-nofont.js"></script>
   </head>
   <body>
-    <div id="indexApp"></div>
-    <script type="module" src="/src/index.js"></script>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>

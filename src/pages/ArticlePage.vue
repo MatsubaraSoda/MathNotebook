@@ -1,78 +1,72 @@
 <script setup>
-import { ref, onMounted, nextTick } from 'vue'
+import { ref, onMounted, nextTick, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { parseMarkdown } from '@/utils/markdown-parser.js'
 import Sidebar from '@/components/Sidebar.vue'
 import TableOfContents from '@/components/TableOfContents.vue'
 import { sidebar } from '@/config.js'
+
+const route = useRoute()
+const router = useRouter()
 
 const content = ref('')
 const toc = ref([])
 const link = ref('')
 const currentSidebar = ref([])
 
-onMounted(async () => {
+async function loadArticle() {
   try {
-    // 1. 获取 link 参数
-    const params = new URLSearchParams(window.location.search)
-    link.value = params.get('link')
-    
-    // 2. 没有 link → 404
-    if (!link.value) {
-      window.location.href = '/404.html'
+    // 1. 获取 link 参数从路由
+    const pathMatch = route.params.pathMatch
+    if (!pathMatch || pathMatch.length === 0) {
+      router.push('/')
       return
     }
     
-    // 3. 匹配 sidebar 配置
-    const subjectName = link.value.split('/')[1]
+    link.value = '/' + pathMatch.join('/')
+    
+    // 2. 匹配 sidebar 配置
+    const subjectName = pathMatch[0]
     const matchedSidebar = sidebar.find(item => item.text === subjectName)
     if (matchedSidebar) {
       currentSidebar.value = [matchedSidebar]
     }
     
-    // 4. 加载 markdown 文件
+    // 3. 加载 markdown 文件
     const response = await fetch(`/docs${link.value}.md`)
     const contentType = response.headers.get('content-type') || ''
     
-    // 文件不存在或返回 HTML（fallback）→ 404
+    // 文件不存在或返回 HTML（fallback）→ 跳转首页
     if (!response.ok || contentType.includes('text/html')) {
-      window.location.href = '/404.html'
+      router.push('/')
       return
     }
     const markdown = await response.text()
     
-    // 5. 解析 markdown
+    // 4. 解析 markdown
     const result = parseMarkdown(markdown)
     content.value = result.html
     toc.value = result.toc
     
-    // 6. 渲染数学公式
+    // 5. 渲染数学公式
     await nextTick()
     if (window.MathJax?.typesetPromise) {
       await window.MathJax.typesetPromise()
     }
     
-    // 7. 恢复滚动位置（开发模式下）
-    if (import.meta.env.DEV) {
-      const savedScroll = sessionStorage.getItem('articleScrollPosition')
-      if (savedScroll) {
-        setTimeout(() => {
-          window.scrollTo({
-            top: parseInt(savedScroll),
-            behavior: 'instant'
-          })
-          sessionStorage.removeItem('articleScrollPosition')
-        }, 100)
-      }
-      
-      // 监听页面刷新前保存滚动位置
-      window.addEventListener('beforeunload', () => {
-        sessionStorage.setItem('articleScrollPosition', window.scrollY.toString())
-      })
-    }
-    
   } catch (error) {
-    window.location.href = '/404.html'
+    console.error('加载文章失败:', error)
+    router.push('/')
   }
+}
+
+// 监听路由变化，重新加载文章
+watch(() => route.params.pathMatch, () => {
+  loadArticle()
+}, { deep: true })
+
+onMounted(() => {
+  loadArticle()
 })
 </script>
 

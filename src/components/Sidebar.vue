@@ -25,7 +25,7 @@ defineProps({
               class="item-level-3"
               :class="{ active: subItem.link === currentLink }"
             >
-              <a :href="`/article.html?link=${subItem.link}`">{{ subItem.text }}</a>
+              <router-link :to="subItem.link">{{ subItem.text }}</router-link>
             </div>
           </div>
 
@@ -35,7 +35,7 @@ defineProps({
             class="item-level-2"
             :class="{ active: item.link === currentLink }"
           >
-            <a :href="`/article.html?link=${item.link}`">{{ item.text }}</a>
+            <router-link :to="item.link">{{ item.text }}</router-link>
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@ defineProps({
   text-decoration: underline;
 }
 
-.sidebar .active a::before {
+.sidebar .active > a::before {
   content: '→ ';
 }
 </style>

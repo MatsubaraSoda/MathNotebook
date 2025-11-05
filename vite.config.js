@@ -4,13 +4,14 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
+import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  appType: 'mpa',  // 多页应用模式，禁用 SPA fallback
   plugins: [
     vue(),
     vueDevTools(),
+    tailwindcss(),
     // 监听 Markdown 文件变化，自动刷新页面
     {
       name: 'reload-on-md-change',
@@ -27,8 +28,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-      '@docs': fileURLToPath(new URL('./public/docs', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
   server: {
@@ -38,16 +38,6 @@ export default defineConfig({
       // 确保监听 public 目录下的文件变化
       ignored: ['!**/public/**']
       // usePolling: true,  // WSL2 环境需要轮询模式
-    }
-  },
-  
-  // MPA 配置
-  build: {
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        article: resolve(__dirname, 'article.html'),
-      }
     }
   }
 })

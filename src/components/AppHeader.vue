@@ -4,7 +4,7 @@
 <template>
   <header class="app-header">
     <div class="container">
-      <a href="/" class="logo">数学笔记</a>
+      <router-link to="/" class="logo">数学笔记</router-link>
     </div>
   </header>
 </template>

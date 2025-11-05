@@ -1,8 +1,11 @@
 <script setup>
+import { useRouter } from 'vue-router'
 import { subjects } from '@/config.js'
 
+const router = useRouter()
+
 function goTo(link) {
-  window.location.href = `/article.html?link=${link}`
+  router.push(link)
 }
 </script>
 
