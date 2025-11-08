@@ -1,0 +1,90 @@
+<svg viewBox="-6.175 -4.70714286 14 14" xmlns="http://www.w3.org/2000/svg">
+    <!--
+    欧几里得命题47 (勾股定理几何图形) - 深色主题版本
+    
+    坐标系统说明：
+    - 使用 transform="scale(1, -1)" 将数学坐标系（Y轴向上）转换为SVG坐标系（Y轴向下）
+    - 下面所有坐标均为数学坐标系中的坐标
+    
+    9个顶点坐标（数学坐标系）：
+    A: [0, 0]
+    B: [-1.8, -2.4]
+    C: [3.2, -2.4]
+    D: [-1.8, -7.4]
+    E: [3.2, -7.4]
+    F: [-4.2, -0.6]
+    G: [-2.4, 1.8]
+    H: [2.4, 3.2]
+    K: [5.6, 0.8]
+    
+    4个几何图形：
+    - 三角形 ABC (黑色填充, 面积=6)
+    - 正方形 ABFG (白色填充, 面积=9, c²=3²)
+    - 正方形 ACKH (白色填充, 面积=16, b²=4²)
+    - 正方形 BCED (白色填充, 面积=25, a²=5²)
+    
+    各图形重心（数学坐标系）：
+    - 三角形ABC: [0.467, -1.6]
+    - 正方形ABFG: [-2.1, -0.3]
+    - 正方形ACKH: [2.8, 0.4]
+    - 正方形BCED: [0.7, -4.9]
+    
+    整体重心（面积加权平均）：
+    - 坐标: [0.825, -2.29285714]
+    - 总面积: 56
+    
+    ViewBox 设置：
+    - 中心点: 整体重心 [0.825, -2.29285714]
+    - 尺寸: 14×14
+    - viewBox: "-6.175 -4.70714286 14 14"
+      计算方式：(0.825-7, 2.29285714-7, 14, 14)
+      注意：Y坐标需要取反，因为 scale(1,-1) 翻转了Y轴
+    
+    黑色圆形背景（深色主题）：
+    - 圆心: [0.825, -2.29285714] (整体重心)
+    - 半径: 7
+    -->
+    <g transform="scale(1, -1)">
+        <!-- 黑色圆形背景 -->
+        <circle cx="0.825" cy="-2.29285714" r="7" fill="black"/>
+        
+        <!-- 正方形 BCED (白色填充) -->
+        <polygon points="-1.8,-2.4 3.2,-2.4 3.2,-7.4 -1.8,-7.4" 
+                 fill="white" 
+                 stroke="white" 
+                 stroke-width="0.05"/>
+        
+        <!-- 正方形 ABFG (白色填充) -->
+        <polygon points="0,0 -1.8,-2.4 -4.2,-0.6 -2.4,1.8" 
+                 fill="white" 
+                 stroke="white" 
+                 stroke-width="0.05"/>
+        
+        <!-- 正方形 ACKH (白色填充) -->
+        <polygon points="0,0 3.2,-2.4 5.6,0.8 2.4,3.2" 
+                 fill="white" 
+                 stroke="white" 
+                 stroke-width="0.05"/>
+        
+        <!-- 三角形 ABC (黑色填充) -->
+        <polygon points="0,0 -1.8,-2.4 3.2,-2.4" 
+                 fill="black" 
+                 stroke="none"/>
+        
+        <!-- 12条连线 -->
+        <line x1="0" y1="0" x2="-1.8" y2="-2.4" stroke="white" stroke-width="0.08"/>
+        <line x1="0" y1="0" x2="3.2" y2="-2.4" stroke="white" stroke-width="0.08"/>
+        <line x1="0" y1="0" x2="-2.4" y2="1.8" stroke="white" stroke-width="0.08"/>
+        <line x1="0" y1="0" x2="2.4" y2="3.2" stroke="white" stroke-width="0.08"/>
+        <line x1="-1.8" y1="-2.4" x2="3.2" y2="-2.4" stroke="white" stroke-width="0.08"/>
+        <line x1="-1.8" y1="-2.4" x2="-1.8" y2="-7.4" stroke="white" stroke-width="0.08"/>
+        <line x1="-1.8" y1="-2.4" x2="-4.2" y2="-0.6" stroke="white" stroke-width="0.08"/>
+        <line x1="3.2" y1="-2.4" x2="3.2" y2="-7.4" stroke="white" stroke-width="0.08"/>
+        <line x1="3.2" y1="-2.4" x2="5.6" y2="0.8" stroke="white" stroke-width="0.08"/>
+        <line x1="-1.8" y1="-7.4" x2="3.2" y2="-7.4" stroke="white" stroke-width="0.08"/>
+        <line x1="-4.2" y1="-0.6" x2="-2.4" y2="1.8" stroke="white" stroke-width="0.08"/>
+        <line x1="2.4" y1="3.2" x2="5.6" y2="0.8" stroke="white" stroke-width="0.08"/>
+    </g>
+</svg>
+
+

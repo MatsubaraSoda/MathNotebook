@@ -4,7 +4,7 @@ import AppFooter from './components/AppFooter.vue'
 </script>
 
 <template>
-  <div id="app-container">
+  <div id="app-container" class="font-sans">
     <AppHeader />
     <main class="main-content">
       <router-view />
@@ -24,4 +24,6 @@ import AppFooter from './components/AppFooter.vue'
   flex: 1;
 }
 </style>
+
+
 
