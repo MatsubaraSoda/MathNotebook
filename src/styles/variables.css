@@ -5,16 +5,16 @@
   --color-text-secondary: #606266;
   --color-bg: #ffffff;
   --color-bg-soft: #f5f7fa;
-  
+
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 32px;
-  
+
   --font-size-sm: 14px;
   --font-size-base: 16px;
   --font-size-lg: 18px;
-  
+
   --max-width-content: 1200px;
 }

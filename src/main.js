@@ -1,16 +1,15 @@
-import { createApp } from 'vue'
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
-import 'github-markdown-css/github-markdown-light.css'
+import { createApp } from "vue";
+import ElementPlus from "element-plus";
+import "element-plus/dist/index.css";
+import "github-markdown-css/github-markdown-light.css";
 
-import './styles/variables.css'
-import './styles/global.css'
+import "./styles/variables.css";
+import "./styles/global.css";
 
-import App from './App.vue'
-import router from './router'
+import App from "./App.vue";
+import router from "./router";
 
-const app = createApp(App)
-app.use(ElementPlus)
-app.use(router)
-app.mount('#app')
-
+const app = createApp(App);
+app.use(ElementPlus);
+app.use(router);
+app.mount("#app");

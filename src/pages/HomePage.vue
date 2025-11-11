@@ -1,11 +1,11 @@
 <script setup>
-import { useRouter } from 'vue-router'
-import { subjects } from '@/config.js'
+import { useRouter } from "vue-router";
+import { subjects } from "@/config.js";
 
-const router = useRouter()
+const router = useRouter();
 
 function goTo(link) {
-  router.push(link)
+  router.push(link);
 }
 </script>
 
@@ -22,10 +22,10 @@ function goTo(link) {
     <section class="subjects-section">
       <div class="container">
         <h2>科目</h2>
-        
+
         <div class="subjects-list">
-          <div 
-            v-for="subject in subjects" 
+          <div
+            v-for="subject in subjects"
             :key="subject.link"
             class="subject-item"
             @click="goTo(subject.link)"

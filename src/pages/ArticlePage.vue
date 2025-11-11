@@ -71,48 +71,24 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="article-page">
-    <div class="article-layout">
+  <div class="container mx-auto">
+    <div class="flex justify-center mt-20">
       <!-- 侧边栏 -->
-      <Sidebar :items="currentSidebar" :currentLink="link" />
+      <!-- <Sidebar class="w-1/12" :items="currentSidebar" :currentLink="link" /> -->
       
       <!-- 文章内容 -->
       <article class="markdown-body" v-html="content"></article>
       
       <!-- TOC 目录 -->
-      <TableOfContents :items="toc" />
+      <!-- <TableOfContents :items="toc" /> -->
     </div>
   </div>
 </template>
-
-<style scoped>
-.article-page {
-  padding: 40px 0;
-}
-
-.article-layout {
-  display: grid;
-  grid-template-columns: 200px 1fr 150px;
-  gap: 32px;
-  max-width: 1600px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 16px;
-  align-items: start;
-}
-
-.markdown-body {
-  max-width: 1080px;
-  padding: 24px;
-  box-sizing: border-box;
-}
-</style>
 
 <style>
 /* 覆盖 github-markdown-css */
 .markdown-body h1 {
   text-align: center;
-  margin-bottom: 40px;
 }
 </style>
 

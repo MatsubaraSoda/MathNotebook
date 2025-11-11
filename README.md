@@ -89,9 +89,11 @@ npm run preview
 # 文章标题
 
 ## 行内公式
+
 勾股定理：$a^2 + b^2 = c^2$
 
 ## 块级公式
+
 $$
 \int_0^1 x^2 dx = \frac{1}{3}
 $$
@@ -104,19 +106,17 @@ $$
 ```javascript
 export const subjects = [
   {
-    name: '数学分析',
-    link: '/数学分析/测试文章',
+    name: "数学分析",
+    link: "/数学分析/测试文章",
   },
-]
+];
 
 export const sidebar = [
   {
-    text: '数学分析',
-    items: [
-      { text: '测试文章', link: '/数学分析/测试文章' },
-    ]
+    text: "数学分析",
+    items: [{ text: "测试文章", link: "/数学分析/测试文章" }],
   },
-]
+];
 ```
 
 ## 📋 系统要求

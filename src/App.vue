@@ -1,29 +1,14 @@
 <script setup>
-import AppHeader from './components/AppHeader.vue'
-import AppFooter from './components/AppFooter.vue'
+import Header from "@/components/Header.vue";
+// import Footer from '@/components/Footer.vue'
 </script>
 
 <template>
-  <div id="app-container" class="font-sans">
-    <AppHeader />
-    <main class="main-content">
+  <Header />
+  <div class="relative container flex flex-col">
+    <main class="container flex w-full">
       <router-view />
     </main>
-    <AppFooter />
+    <!-- <Footer /> -->
   </div>
 </template>
-
-<style>
-#app-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.main-content {
-  flex: 1;
-}
-</style>
-
-
-

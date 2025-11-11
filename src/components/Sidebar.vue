@@ -42,7 +42,6 @@ defineProps({
     </nav>
   </aside>
 </template>
-
 <style scoped>
 .sidebar {
   border-right: 1px solid #e4e7ed;
@@ -89,3 +88,4 @@ defineProps({
   content: '→ ';
 }
 </style>
+

@@ -1,15 +1,15 @@
 <script setup>
 defineProps({
-  items: Array
-})
+  items: Array,
+});
 </script>
 
 <template>
   <aside v-if="items && items.length > 0" class="toc">
     <h3>文章导航</h3>
     <ul>
-      <li 
-        v-for="item in items" 
+      <li
+        v-for="item in items"
         :key="item.id"
         :class="`toc-level-${item.level}`"
       >
@@ -65,4 +65,3 @@ defineProps({
   padding-left: 32px;
 }
 </style>
-

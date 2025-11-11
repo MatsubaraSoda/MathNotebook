@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "vite --port 4003",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.23",
@@ -24,6 +25,8 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.1",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.7.1",
     "vite": "^7.1.7",
     "vite-plugin-vue-devtools": "^8.0.2"
   }
