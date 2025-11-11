@@ -10,81 +10,32 @@ function goTo(link) {
 </script>
 
 <template>
-  <div class="home-page">
+  <div class="flex flex-col gap-12 max-w-4xl mx-auto px-4 py-10">
     <!-- 标题 -->
-    <section class="hero">
-      <h1>松原苏打</h1>
-      <h2>まつばら Soda</h2>
-      <p>数学笔记</p>
+    <section class="text-center space-y-3">
+      <h1 class="text-4xl font-bold text-neutral-900">松原苏打</h1>
+      <h2 class="text-2xl text-neutral-600">まつばら Soda</h2>
+      <p class="text-xl text-neutral-500">数学笔记</p>
     </section>
 
     <!-- 科目列表 -->
-    <section class="subjects-section">
-      <div class="container">
-        <h2>科目</h2>
-
-        <div class="subjects-list">
-          <div
-            v-for="subject in subjects"
-            :key="subject.link"
-            class="subject-item"
-            @click="goTo(subject.link)"
-          >
-            <h3>{{ subject.name }}</h3>
-          </div>
+    <section class="space-y-6 w-10/12 mx-auto">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl font-semibold text-neutral-900">列表</h2>
+        <span class="text-sm text-neutral-500">点击即可进入对应笔记</span>
+      </div>
+      <div class="flex flex-col gap-4">
+        <div
+          v-for="subject in subjects"
+          :key="subject.link"
+          :class="['cursor-pointer border border-neutral-200 bg-white px-6 py-5', 
+            'hover: border-neutral-300 hover:bg-neutral-50'
+          ]"
+          @click="goTo(subject.link)"
+        >
+          <h3 class="text-lg font-medium text-neutral-900">{{ subject.name }}</h3>
         </div>
       </div>
     </section>
   </div>
 </template>
-
-<style scoped>
-.hero {
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.hero h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.hero h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  color: #666;
-}
-
-.subjects-section {
-  padding: 0;
-}
-
-.subjects-section h2 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.subjects-list {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.subject-item {
-  padding: 20px;
-  margin-bottom: 10px;
-  border: 1px solid #e4e7ed;
-  cursor: pointer;
-}
-
-.subject-item:hover {
-  background: #f5f7fa;
-}
-
-.subject-item h3 {
-  margin: 0;
-  font-size: 18px;
-}
-</style>

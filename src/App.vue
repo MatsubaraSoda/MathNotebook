@@ -5,10 +5,8 @@ import Header from "@/components/Header.vue";
 
 <template>
   <Header />
-  <div class="relative container flex flex-col">
-    <main class="container flex w-full">
-      <router-view />
-    </main>
-    <!-- <Footer /> -->
-  </div>
+  <main :class="['container mx-auto relative']">
+    <router-view />
+  </main>
+  <!-- <Footer /> -->
 </template>

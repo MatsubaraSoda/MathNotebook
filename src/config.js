@@ -30,7 +30,6 @@ export const sidebar = [
             text: "康托尔对角线论证",
             link: "/数学分析/Baby Rudin/康托尔对角线论证",
           },
-          { text: "测试", link: "/数学分析/Baby Rudin/测试" },
         ],
       },
       {

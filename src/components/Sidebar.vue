@@ -1,91 +1,55 @@
 <script setup>
 defineProps({
   items: Array,
-  currentLink: String
-})
+  currentLink: String,
+});
 </script>
 
 <template>
-  <aside class="sidebar">
+  <aside class="border-neutral-200 py-5">
     <nav>
       <!-- 一级分组 -->
-      <div v-for="group in items" :key="group.text" class="group-1">
-        <div class="group-title-1">{{ group.text }}</div>
+      <div v-for="group in items" :key="group.text" class="space-y-1">
+        <div class="px-4 py-2 font-semibold text-neutral-900">
+          {{ group.text }}
+        </div>
 
         <!-- 二级项目 -->
         <div v-for="item in group.items" :key="item.text || item.link">
           <!-- 二级：分组（有 items） -->
-          <div v-if="item.items" class="group-2">
-            <div class="group-title-2">{{ item.text }}</div>
+          <div v-if="item.items" class="space-y-1">
+            <div class="px-4 py-1 pl-8 font-semibold text-neutral-900">
+              {{ item.text }}
+            </div>
 
             <!-- 三级项目 -->
             <div
               v-for="subItem in item.items"
               :key="subItem.link"
-              class="item-level-3"
-              :class="{ active: subItem.link === currentLink }"
+              class="px-4 py-1 pl-12"
             >
-              <router-link :to="subItem.link">{{ subItem.text }}</router-link>
+              <router-link
+                :to="subItem.link"
+                class="block text-neutral-900 no-underline hover:underline"
+              >
+                <span v-if="subItem.link === currentLink" class="mr-1">→</span>
+                {{ subItem.text }}
+              </router-link>
             </div>
           </div>
 
           <!-- 二级：叶子节点（有 link） -->
-          <div
-            v-else
-            class="item-level-2"
-            :class="{ active: item.link === currentLink }"
-          >
-            <router-link :to="item.link">{{ item.text }}</router-link>
+          <div v-else class="px-4 py-1 pl-8">
+            <router-link
+              :to="item.link"
+              class="block text-neutral-900 no-underline hover:underline"
+            >
+              <span v-if="item.link === currentLink" class="mr-1">→</span>
+              {{ item.text }}
+            </router-link>
           </div>
         </div>
       </div>
     </nav>
   </aside>
 </template>
-<style scoped>
-.sidebar {
-  border-right: 1px solid #e4e7ed;
-  padding: 20px 0;
-}
-
-.group-title-1,
-.group-title-2 {
-  font-weight: 600;
-  color: #000;
-  padding: 8px 16px;
-}
-
-.group-title-2 {
-  padding-left: 32px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-.item-level-2,
-.item-level-3 {
-  padding: 4px 16px;
-}
-
-.item-level-2 {
-  padding-left: 32px;
-}
-
-.item-level-3 {
-  padding-left: 48px;
-}
-
-.sidebar a {
-  display: block;
-  color: #000;
-  text-decoration: none;
-}
-
-.sidebar a:hover {
-  text-decoration: underline;
-}
-
-.sidebar .active > a::before {
-  content: '→ ';
-}
-</style>
-

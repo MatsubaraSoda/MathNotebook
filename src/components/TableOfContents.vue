@@ -24,7 +24,6 @@ defineProps({
   position: sticky;
   top: 120px;
   padding-left: 16px;
-  border-left: 1px solid #e4e7ed;
 }
 
 .toc h3 {
