@@ -5,7 +5,7 @@ import Header from "@/components/Header.vue";
 
 <template>
   <Header />
-  <main :class="['container mx-auto relative']">
+  <main :class="['relative container mx-auto']">
     <router-view />
   </main>
   <!-- <Footer /> -->

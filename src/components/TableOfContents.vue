@@ -20,12 +20,6 @@ defineProps({
 </template>
 
 <style scoped>
-.toc {
-  position: sticky;
-  top: 120px;
-  padding-left: 16px;
-}
-
 .toc h3 {
   margin: 0 0 16px 0;
   font-size: 16px;
